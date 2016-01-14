@@ -7,16 +7,17 @@
         {{#foreach navigation}}
             <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}" role="presentation"><a href="{{url absolute="true"}}">{{label}}</a></li>
         {{/foreach}}
+        <li><a href="#">Tags</a>
+            <ul class="nav-menu-tags">
+            {{#get "tags" limit="all"}}
+                {{#foreach tags}}
+                    <li><a href="{{url}}">{{name}}</a></li>
+                {{/foreach}}
+            {{/get}}
+            </ul>
+        </li>
     </ul>
-    
-    <h3 class="nav-title">Tags</h3>
-    <ul>
-        {{#get "tags" limit="all"}}
-            {{#foreach tags}}
-                <li><a href="{{url}}">{{name}}</a></li>
-            {{/foreach}}
-        {{/get}}
-    </ul>
+
     <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
 </div>
 <span class="nav-cover"></span>
